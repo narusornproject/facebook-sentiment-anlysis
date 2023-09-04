@@ -92,7 +92,7 @@ if "df" in st.session_state:
             """
         
         # Create the boxes for each statistic
-        total = create_stat_box("Total Number of Facebook:", facebook_df.size)
+        total = create_stat_box("Total Number of Facebook:", len(facebook_df))
         avg_interacts = create_stat_box("Average Number of Interacts:", np.round(facebook_df.interactions.mean(), 3))
         avg_comments = create_stat_box("Average Number of Comments:", np.round(facebook_df.comments.mean(), 3))
         avg_shares = create_stat_box("Average Number of Shares:", np.round(facebook_df.comments.mean(), 3))
