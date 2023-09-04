@@ -8,3 +8,5 @@ pillow==9.2.0
 pythainlp==4.0.2
 nltk==3.5
 tensorflow==2.10.0
+protobuf==3.20.3
+openpyxl==3.1.2
