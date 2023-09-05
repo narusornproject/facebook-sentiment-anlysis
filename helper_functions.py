@@ -143,7 +143,7 @@ def plot_line(facebook_df):
     dff['time'] = pd.to_datetime(dff['time'])
 
     # Plotly Express chart
-    fig = px.bar(dff, x='time', y='count', color='sentiment',
+    fig = px.line(dff, x='time', y='count', color='sentiment',
                 labels={'count': 'Number of Comments', 'time': 'Date'},
                 title="Number of Comments over Time")
     
