@@ -105,9 +105,15 @@ if "df" in st.session_state:
         col2.markdown(avg_interacts, unsafe_allow_html=True)
         col3.markdown(avg_comments, unsafe_allow_html=True)
         col4.markdown(avg_shares, unsafe_allow_html=True)
-            
-        line_plot = hf.plot_line(facebook_df)
-        st.plotly_chart(line_plot, theme=None, use_container_width=True)
+           
+        col1, col2 = st.columns([70, 30])
+        with col1:
+            bar_plot = hf.plot_bar(facebook_df)
+            st.plotly_chart(bar_plot, theme=None, use_container_width=True)
+       
+        with col2:
+            line_plot = hf.plot_line(facebook_df)
+            st.plotly_chart(line_plot, theme=None, use_container_width=True)
 
         # first row
         col1, col2, col3 = st.columns([28, 34, 38])
