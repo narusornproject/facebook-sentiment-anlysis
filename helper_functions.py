@@ -157,8 +157,8 @@ def plot_bar(facebook_df):
 
     # Create the horizontal stacked bar plot
     categories = pivot_df.index
-    positives = pivot_df['Positive']
-    negatives = pivot_df.get('Negative', [0]*len(positives))
+    positives = pivot_df.get('Positive', [0]*len(pivot_df))
+    negatives = pivot_df.get('Negative', [0]*len(pivot_df))
 
     fig = go.Figure()
 
