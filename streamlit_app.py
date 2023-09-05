@@ -66,7 +66,7 @@ with st.sidebar:
 
     st.subheader("Search Parameters")
     st.selectbox("Search term", page, key="search_term")
-    st.radio("Search type:", ["post&comment", "post", "comment"], key='search_type')
+    st.radio("Search type:", ["comment", "post", "post&comment"], key='search_type')
     search_callback()
     
     st.markdown(
