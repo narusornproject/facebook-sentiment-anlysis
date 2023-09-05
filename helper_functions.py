@@ -148,3 +148,47 @@ def plot_line(facebook_df):
                 title="Number of Comments over Time")
     
     return fig
+
+def plot_bar(facebook_df):
+    dff = facebook_df[facebook_df.type=='comment'].groupby('category')['sentiment'].value_counts().reset_index(name='count')
+
+    # Create a pivot table
+    pivot_df = dff.pivot(index='category', columns='sentiment', values='count').fillna(0)
+
+    # Create the horizontal stacked bar plot
+    categories = pivot_df.index
+    positives = pivot_df['Positive']
+    negatives = pivot_df.get('Negative', [0]*len(positives))
+
+    fig = go.Figure()
+
+    # Adding the Positive bars
+    fig.add_trace(go.Bar(
+        y=categories,
+        x=positives,
+        name='Positive',
+        orientation='h',
+        text=positives,
+        textposition='inside',
+        textfont_size=18
+    ))
+
+    # Adding the Negative bars
+    fig.add_trace(go.Bar(
+        y=categories,
+        x=negatives,
+        name='Negative',
+        orientation='h',
+        text=negatives,
+        textposition='inside',
+        textfont_size=18
+    ))
+
+    # Finalizing layout
+    fig.update_layout(
+        title='Sentiment Analysis by Category',
+        barmode='stack',
+    )
+    
+    return fig
+
