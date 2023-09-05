@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-import pickle
 import datetime as dt
 
 import plotly.graph_objects as go
@@ -89,7 +88,7 @@ def plot_wordcloud(facebook_df, colormap="Greens"):
         background_color="white",
         font_path=font,
         stopwords=stopwords,
-        max_words=1800,
+        max_words=2000,
         # height = 2000,
         # width=4000,
         regexp=reg,
@@ -107,6 +106,7 @@ def plot_wordcloud(facebook_df, colormap="Greens"):
     plt.axis("off")
     plt.title("Wordcloud", fontdict={"fontsize": 16}, fontweight="heavy", pad=20, y=1.0)
     return fig
+
 
 
 def get_top_n_gram(facebook_df, ngram_range, n=10):
